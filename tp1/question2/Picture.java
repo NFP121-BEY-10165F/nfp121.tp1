@@ -94,7 +94,7 @@ public class Picture {
      * Animates the blue sun and makes it sunset 
      */
     public void sunset(){
-         if (sun != null) {// only if it's painted already...
+         
             sun.slowMoveVertical(500);
         } 
     
