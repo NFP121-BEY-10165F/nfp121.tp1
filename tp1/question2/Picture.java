@@ -50,8 +50,15 @@ public class Picture {
         roof.makeVisible();
 
         sun = new Circle();
-        sun.changeColor("yellow");
+        sun.changeColor("blue");
         sun.moveHorizontal(180);
+        sun.moveVertical(-10);
+        sun.changeSize(60);
+        sun.makeVisible();
+        //nouveau soleil jaune ajoutte
+        sun = new Circle();
+        sun.changeColor("yellow");
+        sun.moveHorizontal(171);
         sun.moveVertical(-10);
         sun.changeSize(60);
         sun.makeVisible();
@@ -82,5 +89,14 @@ public class Picture {
             sun.changeColor("yellow");
         }
     }
-
+    
+    /**
+     * Animates the blue sun and makes it sunset 
+     */
+    public void sunset(){
+         if (sun != null) {// only if it's painted already...
+            sun.slowMoveVertical(500);
+        } 
+    
+    }
 }

@@ -45,7 +45,22 @@ public class AuditeurCNAM {
      *         homonymes...
      */
     public String login() {
-        return "";// à compléter
+        String f= this.nom;
+        String e=this.prenom;
+        f= pasAccents(f);
+        e= pasAccents(e);
+        f= f.substring(0,Math.min(f.length(),6)).replaceAll("[^a-zA-Z0-9_]", "_").toLowerCase()+"_"+e.substring(0,Math.min(e.length(),1)).replaceAll("[^a-zA-Z0-9_]", "_").toLowerCase();
+        f= pasAccents(f);
+        return f;
+    }
+     public String pasAccents(String x){
+        String accents = "àâäãéèêëîïìöôòõüûùÀÂÄÃÉÈÊËÎÏÌÖÔÒÕÜÛÙ";
+	String paccents = "aaaaeeeeiiioooouuuaaaaeeeeiiioooouuu";
+        int l = accents.length();
+        for(int i = 0; i<l ; i++){
+            x = x.replace(accents.charAt(i), paccents.charAt(i));
+        }
+        return x;
     }
 
     /**
@@ -54,16 +69,15 @@ public class AuditeurCNAM {
      * @return son nom
      */
     public String nom() {
-        return null;// à compléter
+       return this.nom;
     }
-
     /**
      * Lecture du prénom de l'auditeur.
      * 
      * @return son prénom
      */
     public String prenom() {
-        return null;// à compléter
+        return this.prenom;
     }
 
     /**
@@ -72,7 +86,7 @@ public class AuditeurCNAM {
      * @return son matricule
      */
     public String matricule() {
-        return null;// à compléter
+        return this.matricule;
     }
 
     /**
