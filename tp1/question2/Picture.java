@@ -20,18 +20,31 @@ public class Picture {
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Circle sun2;
+    private Square terre;
 
     /**
      * Constructor for objects of class Picture
      */
     public Picture() {
-        // nothing to do... instance variables are automatically set to null
+        
     }
 
     /**
      * Draw this picture.
      */
     public void draw() {
+        
+        //terre fixe 
+        terre = new Square();
+        terre.makeVisible();
+        terre.changeColor("green");
+        terre.changeSize(1000);
+        terre.moveHorizontal(-200);
+        terre.moveVertical(100);
+        
+        
+        
         wall = new Square();
         wall.moveVertical(80);
         wall.changeSize(100);
@@ -55,13 +68,14 @@ public class Picture {
         sun.moveVertical(-10);
         sun.changeSize(60);
         sun.makeVisible();
+        
         //nouveau soleil jaune ajoutte
-        sun = new Circle();
-        sun.changeColor("yellow");
-        sun.moveHorizontal(171);
-        sun.moveVertical(-10);
-        sun.changeSize(60);
-        sun.makeVisible();
+        sun2 = new Circle();
+        sun2.changeColor("yellow");
+        sun2.moveHorizontal(171);
+        sun2.moveVertical(-10);
+        sun2.changeSize(60);
+        sun2.makeVisible();
     }
 
     /**
@@ -94,9 +108,10 @@ public class Picture {
      * Animates the blue sun and makes it sunset 
      */
     public void sunset(){
-         
-            sun.slowMoveVertical(500);
+            if(terre!=null){
+            sun2.slowMoveVertical(500);
+        }
         } 
     
     }
-}
+
